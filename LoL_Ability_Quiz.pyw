@@ -1,19 +1,20 @@
 import os
 import random
 import time
+from turtle import color
 try:
     import tkinter as tk
 except ImportError:
     import Tkinter as tk
 
+
 class RandomSpell:
     def __init__(self, master):
-        
+
         self.master = master
         master.title("Random Abilities Game")
 
-
-        #VARIABLES
+        # VARIABLES
 
         self.champ = ""
         self.ability = ""
@@ -22,40 +23,44 @@ class RandomSpell:
         self.running = False
         self.action = None
 
+        # LABELS
 
-        #LABELS
-
-        self.header = tk.Label(master, text="Random Abilities Game", font=("Arial", 24))
+        self.header = tk.Label(
+            master, text="Random Abilities Game", font=("Arial", 24), bg="#121212", fg="#FAFAFA")
         self.header.place(x=50, y=20, width=700, height=50)
 
-        self.timer = tk.Label(master, text="20 s", font=("Arial", 20), borderwidth=2, relief="groove")
+        self.timer = tk.Label(master, text="20 s", font=(
+            "Arial", 20), borderwidth=2, relief="groove", bg="#121212", fg="#FAFAFA")
         self.timer.place(x=300, y=500, width=200, height=50)
 
-        self.labelAbility = tk.Label(master, text="", font=("Arial", 16), borderwidth=2, relief="groove")
+        self.labelAbility = tk.Label(master, text="", font=(
+            "Arial", 16), borderwidth=2, relief="groove", bg="#121212", fg="#FAFAFA")
         self.labelAbility.place(x=200, y=100, width=400, height=50)
 
-        self.labelReveal = tk.Label(master, text="", font=("Arial", 16), borderwidth=2, relief="groove")
+        self.labelReveal = tk.Label(master, text="", font=(
+            "Arial", 16), borderwidth=2, relief="groove", bg="#121212", fg="#FAFAFA")
         self.labelReveal.place(x=200, y=160, width=400, height=50)
 
+        # BUTTONS
 
-        #BUTTONS
-
-        self.next_button = tk.Button(master, text="Show next ability", command=self.next, font=("Arial", 12))
+        self.next_button = tk.Button(
+            master, text="Show next ability", command=self.next, font=("Arial", 12), bg="#222222", fg="#FAFAFA")
         self.next_button.place(x=200, y=250, height=45, width=400)
 
-        self.reveal_button = tk.Button(master, text="Reveal champion and ability", command=self.reveal, font=("Arial", 12))
+        self.reveal_button = tk.Button(
+            master, text="Reveal champion and ability", command=self.reveal, font=("Arial", 12), bg="#222222", fg="#FAFAFA")
         self.reveal_button.place(x=200, y=300, height=45, width=400)
 
-        self.close_button = tk.Button(master, text="Close", command=master.quit, font=("Arial", 12))
+        self.close_button = tk.Button(
+            master, text="Close", command=master.quit, font=("Arial", 12), bg="#222222", fg="#FAFAFA")
         self.close_button.place(x=200, y=350, height=45, width=400)
 
-
-    #METHODS
+    # METHODS
 
     def next(self):
         if self.action:
-                root.after_cancel(self.action)
-                self.action = None
+            root.after_cancel(self.action)
+            self.action = None
         self.running = False
         self.champ = random.choice(list(champ_dict.keys()))
         self.ability = random.choice(list(champ_dict[self.champ].keys()))
@@ -66,7 +71,7 @@ class RandomSpell:
         self.running = True
         if not self.action:
             self.update_clock()
-        
+
     def reveal(self):
         self.labelReveal.configure(text=self.champ + " " + self.ability)
         self.running = False
@@ -88,7 +93,6 @@ class RandomSpell:
                 self.timer.configure(text="OUT OF TIME")
 
 
-
 file_name = "ChampData.json"
 champ_dict = open(file_name, "r")
 champ_dict = champ_dict.read()
@@ -98,4 +102,5 @@ if __name__ == "__main__":
     root = tk.Tk()
     my_gui = RandomSpell(root)
     root.geometry("800x600")
+    root.configure(bg='#121212')
     root.mainloop()
