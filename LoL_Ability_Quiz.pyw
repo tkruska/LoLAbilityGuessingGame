@@ -57,23 +57,36 @@ class RandomSpell:
 
     # METHODS
 
+    def remove_items(self):
+        champ_dict[self.champ].pop(self.ability)
+        if not champ_dict[self.champ]:
+            champ_dict.pop(self.champ)
+
     def next(self):
         if self.action:
             root.after_cancel(self.action)
             self.action = None
         self.running = False
-        self.champ = random.choice(list(champ_dict.keys()))
-        self.ability = random.choice(list(champ_dict[self.champ].keys()))
-        self.ability_name = champ_dict[self.champ][self.ability]
-        self.labelAbility.configure(text=self.ability_name)
-        self.labelReveal.configure(text="")
-        self.timeleft = 21
-        self.running = True
-        if not self.action:
-            self.update_clock()
+        try:
+            self.champ = random.choice(list(champ_dict.keys()))
+            self.ability = random.choice(list(champ_dict[self.champ].keys()))
+            self.ability_name = champ_dict[self.champ][self.ability]
+            self.full_info = self.champ + " " + self.ability
+            self.remove_items()
+            self.labelAbility.configure(text=self.ability_name)
+            self.labelReveal.configure(text="")
+            self.timeleft = 21
+            self.running = True
+            if not self.action:
+                self.update_clock()
+        except:
+            self.labelAbility.configure(text="No abilities left.")
+            self.labelReveal.configure(text="Wind's howling...")
+            self.timer.configure(text="GGWP")
+            self.full_info = "Wind's howling..."
 
     def reveal(self):
-        self.labelReveal.configure(text=self.champ + " " + self.ability)
+        self.labelReveal.configure(text=self.full_info)
         self.running = False
 
     def update_clock(self):
