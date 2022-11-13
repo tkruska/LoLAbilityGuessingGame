@@ -49,7 +49,8 @@ while True:
             print("No older version found.")
         break
     else:
-        print("No new version available.\nCurrent version: " + current_version + "\n")
+        print("No new version available.\nCurrent version: " +
+              current_version + "\n")
         break
 
 
@@ -81,7 +82,7 @@ while True:
 
 ### TGZ-EXTRACTOR BELOW ###
 
-### TO DO: USE INPUT FOR LANGUAGE SETTINGS ...
+# TO DO: USE INPUT FOR LANGUAGE SETTINGS ...
 
 while True:
     tar_file = dragon_file
@@ -99,13 +100,12 @@ while True:
     break
 
 
-champ_folder_dir = os.getcwd() + "\\" + "\\" + newest_version + r"\data\en_US\champion"
+champ_folder_dir = os.getcwd() + "\\" + "\\" + newest_version + \
+    r"\data\en_US\champion"
 print("\nMoving champion folder to prepare JSON creation...")
 if "champion" in os.listdir():
     shutil.rmtree(os.getcwd() + r"\champion")
 shutil.move(champ_folder_dir, os.getcwd())
-print("\nRemoving archive remains...")
-shutil.rmtree(os.getcwd() + "\\" + newest_version)
 
 
 ###
@@ -157,6 +157,33 @@ print("\nWriting dictionary to JSON file...")
 with open(os.path.join(out_dir, "ChampData.json"), "w") as outfile:
     json.dump(output_dict, outfile)
 print("\nJSON file succesfully created.")
-print("\nEverything is prepared.")
-print("You can now start LoL Spell Quiz.")
-input("Press any key to close...  There will be cake.\n")
+remove = 0
+while remove != "Y" or remove != "N":
+    remove = input(
+        "Do you want to remove the downloaded / extracted files? Y/N?: ").upper()
+    if remove == "Y" or remove == "N":
+        break
+    else:
+        continue
+
+
+def closing_words():
+    print("\nEverything is prepared.")
+    print("You can now start LoL Spell Quiz.")
+    input("Press any key to close...  There will be cake.\n")
+
+
+def cleanup():
+    print("\nRemoving extracted archive...")
+    shutil.rmtree(os.getcwd() + "\\" + newest_version)
+    print("\nRemoving dragontail...")
+    os.remove(os.getcwd() + "\\" + dragon_file)
+    print("\nRemoving champion folder...")
+    shutil.rmtree(os.getcwd() + r"\champion")
+
+
+if remove == "Y":
+    cleanup()
+    closing_words()
+else:
+    closing_words()
