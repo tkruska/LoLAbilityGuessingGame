@@ -1,0 +1,10 @@
+champion/
+dragontail-*/
+Lib/
+Scripts/
+Changelog.txt
+*.tgz
+latest.txt
+pyvenv.cfg
+*.png
+requirements.txt
