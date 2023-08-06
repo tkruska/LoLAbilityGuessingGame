@@ -169,7 +169,7 @@ while remove != "Y" or remove != "N":
 
 def closing_words():
     print("\nEverything is prepared.")
-    print("You can now start LoL Spell Quiz.")
+    print("You can now start LoL Ability Quiz. Happy guessing (or knowing). 👀")
     input("Press any key to close...  There will be cake.\n")
 
 

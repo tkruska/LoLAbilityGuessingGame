@@ -8,3 +8,4 @@ latest.txt
 pyvenv.cfg
 *.png
 requirements.txt
+.vscode/
