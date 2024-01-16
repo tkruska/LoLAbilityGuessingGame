@@ -118,6 +118,13 @@
         "E": "Unbreakable",
         "R": "Glacial Fissure"
     },
+    "Briar": {
+        "P": "Crimson Curse",
+        "Q": "Head Rush",
+        "W": "Blood Frenzy / Snack Attack",
+        "E": "Chilling Scream",
+        "R": "Certain Death"
+    },
     "Caitlyn": {
         "P": "Headshot",
         "Q": "Piltover Peacemaker",
@@ -292,6 +299,13 @@
         "W": "Hextech Micro-Rockets",
         "E": "CH-2 Electron Storm Grenade",
         "R": "UPGRADE!!!"
+    },
+    "Hwei": {
+        "P": "Signature of the Visionary",
+        "Q": "Subject: Disaster",
+        "W": "Subject: Serenity",
+        "E": "Subject: Torment",
+        "R": "Spiraling Despair"
     },
     "Illaoi": {
         "P": "Prophet of an Elder God",
