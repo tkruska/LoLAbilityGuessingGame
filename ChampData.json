@@ -853,6 +853,13 @@
         "E": "Fracture",
         "R": "Impale"
     },
+    "Smolder": {
+        "P": "Dragon Practice",
+        "Q": "Super Scorcher Breath",
+        "W": "Achooo!",
+        "E": "Flap, Flap, Flap",
+        "R": "MMOOOMMMM!"
+    },
     "Sona": {
         "P": "Power Chord",
         "Q": "Hymn of Valor",
