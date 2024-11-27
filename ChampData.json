@@ -34,6 +34,13 @@
         "E": "Trample",
         "R": "Unbreakable Will"
     },
+    "Ambessa": {
+        "P": "Drakehound's Step",
+        "Q": "Cunning Sweep / Sundering Slam",
+        "W": "Repudiation",
+        "E": "Lacerate",
+        "R": "Public Execution"
+    },
     "Amumu": {
         "P": "Cursed Touch",
         "Q": "Bandage Toss",
@@ -75,6 +82,13 @@
         "W": "Astral Flight",
         "E": "Singularity",
         "R": "Falling Star / The Skies Descend"
+    },
+    "Aurora": {
+        "P": "Spirit Abjuration",
+        "Q": "Twofold Hex",
+        "W": "Across the Veil",
+        "E": "The Weirding",
+        "R": "Between Worlds"
     },
     "Azir": {
         "P": "Shurima's Legacy",
@@ -847,10 +861,10 @@
         "R": "On The Hunt"
     },
     "Skarner": {
-        "P": "Crystal Spires",
-        "Q": "Crystal Slash",
-        "W": "Crystalline Exoskeleton",
-        "E": "Fracture",
+        "P": "Threads of Vibration",
+        "Q": "Shattered Earth / Upheaval",
+        "W": "Seismic Bastion",
+        "E": "Ixtal's Impact",
         "R": "Impale"
     },
     "Smolder": {
