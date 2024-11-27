@@ -26,7 +26,7 @@ while True:
     try:
         with open("latest.txt", "r") as f:
             current_version = f.read()
-    except:
+    except FileNotFoundError:
         current_version = ""
 
     if current_version == "":
@@ -49,8 +49,7 @@ while True:
             print("No older version found.")
         break
     else:
-        print("No new version available.\nCurrent version: " +
-              current_version + "\n")
+        print("No new version available.\nCurrent version: " + current_version + "\n")
         break
 
 
@@ -100,8 +99,7 @@ while True:
     break
 
 
-champ_folder_dir = os.getcwd() + "\\" + "\\" + newest_version + \
-    r"\data\en_US\champion"
+champ_folder_dir = os.getcwd() + "\\" + "\\" + newest_version + r"\data\en_US\champion"
 print("\nMoving champion folder to prepare JSON creation...")
 if "champion" in os.listdir():
     shutil.rmtree(os.getcwd() + r"\champion")
@@ -160,7 +158,8 @@ print("\nJSON file succesfully created.")
 remove = 0
 while remove != "Y" or remove != "N":
     remove = input(
-        "Do you want to remove the downloaded / extracted files? Y/N?: ").upper()
+        "Do you want to remove the downloaded / extracted files? Y/N?: "
+    ).upper()
     if remove == "Y" or remove == "N":
         break
     else:
